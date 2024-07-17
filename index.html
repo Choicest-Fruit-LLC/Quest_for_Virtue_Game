@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enchanted Adventure</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Enchanted Adventure</h1>
+        <div id="game-text">
+            <!-- Game text and descriptions -->
+        </div>
+        <div id="options-container">
+            <!-- Options for player choices -->
+        </div>
+        
+        <div id="inventory-container">
+            <h3>Inventory</h3>
+            <div id="inventory-list">
+                <!-- Display player inventory items dynamically -->
+            </div>
+        </div>
+
+        <div id="stats-container">
+            <h3>Character Stats</h3>
+            <div class="stat">Strength: <span id="strength-stat">10</span></div>
+            <div class="stat">Magic: <span id="magic-stat">5</span></div>
+            <div class="stat">Diplomacy: <span id="diplomacy-stat">8</span></div>
+        </div>
+    </div>
+
+    <audio id="background-music" loop>
+        <!-- Add your background music source here -->
+        <!-- <source src="background_music.mp3" type="audio/mpeg"> -->
+        <!-- Example: For silent background music -->
+        <source src="silence.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="game.js"></script>
+</body>
+</html>
