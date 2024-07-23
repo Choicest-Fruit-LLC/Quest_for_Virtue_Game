@@ -12,20 +12,19 @@ let gameState = {
     }
 };
 
-
-
 // Scenes and choices
 const scenes = {
     start: {
         text: "Welcome to the Enchanted Adventure! You stand at the entrance of the mystical forest...",
         options: [
-            { text: "Enter the Whispering Woods", nextScene: "whisperingWoods" },
+            { text: "Enter the Whispering Woods", nextScene: "whisperingWoods"},
             { text: "Ascend to the Mystic Mountain", nextScene: "mysticMountain" },
             { text: "Explore the Royal Castle", nextScene: "royalCastle" }
         ]
     },
     whisperingWoods: {
         text: "You enter the Whispering Woods. Ancient trees whisper secrets around you...",
+        image: "./img/woods.jpg",
         options: [
             { text: "Listen to the Trees", action: function() {
                 gameState.gems.wisdom = true;
@@ -40,6 +39,7 @@ const scenes = {
     },
     mysticMountain: {
         text: "You ascend towards the Mystic Mountain. Crystalline streams flow amidst towering peaks...",
+        image: "./img/mystic-mountain.jpg",
         options: [
             { text: "Ascend to the Celestial Summit", action: function() {
                 gameState.gems.spirituality = true;
@@ -54,6 +54,7 @@ const scenes = {
     },
     royalCastle: {
         text: "You arrive at the majestic Royal Castle. Turrets rise towards the sky and banners flutter in the breeze...",
+        image: "./img/royal-castle.jpg",
         options: [
             { text: "Visit the Royal Library", nextScene: "royalLibrary" },
             { text: "Attend the Royal Court", nextScene: "royalCourt" }
@@ -189,15 +190,29 @@ const scenes = {
     }
 };
 
+
+console.log(scenes.start.options[0].image);
+
+
 // Function to update the game interface with current scene and options
 function updateGame() {
     const currentScene = scenes[gameState.currentScene];
     const gameTextElement = document.getElementById('game-text');
     const optionsContainer = document.getElementById('options-container');
+    const sceneImageElement = document.getElementById('scene-image'); // Assuming an image element in your HTML
   
 
     // Update game text
     gameTextElement.innerHTML = `<p>${currentScene.text}</p>`;
+
+
+    // Update scene image
+    if (currentScene.image) {
+        sceneImageElement.src = currentScene.image;
+        sceneImageElement.style.display = 'block';  // Show the image element
+    } else {
+        sceneImageElement.style.display = 'none';  // Hide the image element if no image is specified
+    }
 
     // Clear previous options
     optionsContainer.innerHTML = '';
@@ -222,7 +237,7 @@ function updateGame() {
 updateGame();
 
 // Example: Background music control
-const backgroundMusic = document.getElementById('background-music');
+// const backgroundMusic = document.getElementById('background-music');
 // Uncomment and replace 'background_music.mp3' with your actual music file path
 // backgroundMusic.src = 'background_music.mp3';
-backgroundMusic.play();
+// backgroundMusic.play();
