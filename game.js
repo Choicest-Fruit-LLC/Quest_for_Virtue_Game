@@ -16,6 +16,7 @@ let gameState = {
 const scenes = {
     start: {
         text: "Welcome to the Enchanted Adventure! You stand at the entrance of the mystical forest...",
+        image: "./img/home-image.jpg",
         options: [
             { text: "Enter the Whispering Woods", nextScene: "whisperingWoods"},
             { text: "Ascend to the Mystic Mountain", nextScene: "mysticMountain" },
@@ -37,6 +38,25 @@ const scenes = {
             }}
         ]
     },
+    treesWisdom: {
+        text: "The ancient trees impart their wisdom, revealing hidden truths...",
+        image: "./img/ancient-trees.jpg",
+        options: [
+            { text: "Continue Your Journey", nextScene: "start" }
+        ]
+    },
+    shiftingPaths: {
+        text: "You navigate the shifting paths with caution, avoiding traps and finding hidden treasures...",
+        image: "./img/shifting-paths.jpg",
+        options: [
+            { text: "Proceed Deeper into the Woods", nextScene: "whisperingWoods" },
+            { text: "Return to the Crossroads", nextScene: "start" }
+        ]
+    },
+
+
+
+
     mysticMountain: {
         text: "You ascend towards the Mystic Mountain. Crystalline streams flow amidst towering peaks...",
         image: "./img/mystic-mountain.jpg",
@@ -90,19 +110,7 @@ const scenes = {
             }}
         ]
     },
-    treesWisdom: {
-        text: "The ancient trees impart their wisdom, revealing hidden truths...",
-        options: [
-            { text: "Continue Your Journey", nextScene: "start" }
-        ]
-    },
-    shiftingPaths: {
-        text: "You navigate the shifting paths with caution, avoiding traps and finding hidden treasures...",
-        options: [
-            { text: "Proceed Deeper into the Woods", nextScene: "whisperingWoods" },
-            { text: "Return to the Crossroads", nextScene: "start" }
-        ]
-    },
+ 
     celestialSummit: {
         text: "You reach the Celestial Summit, where celestial beings share profound insights...",
         options: [
@@ -190,8 +198,6 @@ const scenes = {
     }
 };
 
-
-console.log(scenes.start.options[0].image);
 
 
 // Function to update the game interface with current scene and options
