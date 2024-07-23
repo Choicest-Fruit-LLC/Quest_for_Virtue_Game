@@ -12,15 +12,7 @@ let gameState = {
     }
 };
 
-// Player inventory and stats
-let playerState = {
-    inventory: [],
-    stats: {
-        strength: 10,
-        magic: 5,
-        diplomacy: 8
-    }
-};
+
 
 // Scenes and choices
 const scenes = {
@@ -202,10 +194,7 @@ function updateGame() {
     const currentScene = scenes[gameState.currentScene];
     const gameTextElement = document.getElementById('game-text');
     const optionsContainer = document.getElementById('options-container');
-    const inventoryList = document.getElementById('inventory-list');
-    const strengthStat = document.getElementById('strength-stat');
-    const magicStat = document.getElementById('magic-stat');
-    const diplomacyStat = document.getElementById('diplomacy-stat');
+  
 
     // Update game text
     gameTextElement.innerHTML = `<p>${currentScene.text}</p>`;
@@ -226,37 +215,7 @@ function updateGame() {
         optionsContainer.appendChild(button);
     });
 
-    // Update inventory display
-    inventoryList.innerHTML = '';
-    playerState.inventory.forEach(item => {
-        const listItem = document.createElement('div');
-        listItem.classList.add('item');
-        listItem.textContent = item;
-        inventoryList.appendChild(listItem);
-    });
 
-    // Update character stats display
-    strengthStat.textContent = playerState.stats.strength;
-    magicStat.textContent = playerState.stats.magic;
-    diplomacyStat.textContent = playerState.stats.diplomacy;
-}
-
-// Example: Implementing a function to add items to inventory
-function addToInventory(item) {
-    playerState.inventory.push(item);
-    console.log(`Added ${item} to inventory:`, playerState.inventory);
-}
-
-// Example: Implementing a function to update player stats based on choices
-function updateStats(choice) {
-    switch (choice) {
-        case 'diplomaticChoice':
-            playerState.stats.diplomacy += 2;
-            break;
-        // Add more cases as per your game's choices and outcomes
-        default:
-            break;
-    }
 }
 
 // Initialize game
