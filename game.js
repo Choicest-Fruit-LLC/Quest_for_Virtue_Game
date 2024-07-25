@@ -12,6 +12,18 @@ let gameState = {
     }
 };
 
+
+// Function to count true gems
+function countTrueGems() {
+    let trueGemsCount = 0;
+    for (let gem in gameState.gems) {
+        if (gameState.gems[gem] === true) {
+            trueGemsCount++;
+        }
+    }
+    return trueGemsCount;
+}
+
 // Scenes and choices
 const scenes = {
     start: {
@@ -206,6 +218,7 @@ function updateGame() {
     const gameTextElement = document.getElementById('game-text');
     const optionsContainer = document.getElementById('options-container');
     const sceneImageElement = document.getElementById('scene-image'); // Assuming an image element in your HTML
+    const gemCounterElement = document.getElementById('gem-counter'); // New element for displaying gem count
   
 
     // Update game text
@@ -235,6 +248,11 @@ function updateGame() {
         });
         optionsContainer.appendChild(button);
     });
+
+
+      // Update gem counter display
+      gemCounterElement.textContent = `Gems: ${countTrueGems()}`;
+
 
 
 }
