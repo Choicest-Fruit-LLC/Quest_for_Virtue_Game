@@ -12,6 +12,20 @@ let gameState = {
     }
 };
 
+const gemMeanings = {
+    courage: "Courage represents the bravery to face challenges and fears.",
+    wisdom: "Wisdom symbolizes the deep understanding and insight gained through experience.",
+    knowledge: "Knowledge signifies the pursuit of learning and enlightenment.",
+    harmony: "Harmony embodies balance and peace in relationships and environments.",
+    leadership: "Leadership stands for the ability to guide and inspire others.",
+    spirituality: "Spirituality refers to a deep connection with the inner self and the universe."
+};
+
+// Function to show the meaning of a gem in a popup
+function showGemMeaning(gem) {
+    const meaning = gemMeanings[gem] || "No meaning found.";
+    alert(`${gem.charAt(0).toUpperCase() + gem.slice(1)}: ${meaning}`);
+}
 
 // Function to count true gems
 function countTrueGems() {
@@ -255,17 +269,20 @@ function updateGame() {
     gemCounterElement.textContent = `Gems: ${countTrueGems()}`;
     
 
-      // Update gems display
-      gemsList.innerHTML = '';
-      for (const gem in gameState.gems) {
-          if (gameState.gems.hasOwnProperty(gem) && gameState.gems[gem]) {
-              const gemItem = document.createElement('div');
-              gemItem.classList.add('gem');
-              gemItem.textContent = gem.charAt(0).toUpperCase() + gem.slice(1);
-              gemsList.appendChild(gemItem);
-          }
-      }
-
+          // Update gems display
+    gemsList.innerHTML = '';
+    for (const gem in gameState.gems) {
+        if (gameState.gems.hasOwnProperty(gem) && gameState.gems[gem]) {
+            const gemItem = document.createElement('div');
+            gemItem.classList.add('gem');
+            gemItem.textContent = gem.charAt(0).toUpperCase() + gem.slice(1);
+            gemItem.style.cursor = 'pointer'; // Make the gem item look clickable
+            gemItem.addEventListener('click', function() {
+                showGemMeaning(gem);
+            });
+            gemsList.appendChild(gemItem);
+        }
+    }
 
 
 }
