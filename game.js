@@ -219,6 +219,7 @@ function updateGame() {
     const optionsContainer = document.getElementById('options-container');
     const sceneImageElement = document.getElementById('scene-image'); // Assuming an image element in your HTML
     const gemCounterElement = document.getElementById('gem-counter'); // New element for displaying gem count
+    const gemsList = document.getElementById('gems-list'); // Add this line
   
 
     // Update game text
@@ -251,7 +252,19 @@ function updateGame() {
 
 
       // Update gem counter display
-      gemCounterElement.textContent = `Gems: ${countTrueGems()}`;
+    gemCounterElement.textContent = `Gems: ${countTrueGems()}`;
+    
+
+      // Update gems display
+      gemsList.innerHTML = '';
+      for (const gem in gameState.gems) {
+          if (gameState.gems.hasOwnProperty(gem) && gameState.gems[gem]) {
+              const gemItem = document.createElement('div');
+              gemItem.classList.add('gem');
+              gemItem.textContent = gem.charAt(0).toUpperCase() + gem.slice(1);
+              gemsList.appendChild(gemItem);
+          }
+      }
 
 
 

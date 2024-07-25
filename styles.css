@@ -60,3 +60,27 @@ h2 {
     border-radius: 8px; /* Optional: Add rounded corners */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
 }
+
+
+/* CSS for styling the gems list */
+#gems-list {
+    margin-top: 20px; /* Adjust spacing as needed */
+}
+
+.gem {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: #07ffff; /* Yellow background */
+    color: #212529; /* Dark text color */
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Optional hover effect */
+.gem:hover {
+    background-color: #ffca28; /* Lighter yellow on hover */
+    cursor: pointer;
+}
+
